@@ -193,7 +193,7 @@ function cliencode_check() {
         window.location = "index01.html";
     }
     else {
-        var sp = clientCode.substring(0, 1);
+        var sp = Previous.substring(0, 1);
         if (sp == "2") {
             window.location = "Retailer.html";
         }
@@ -1739,6 +1739,7 @@ function Register() {
                         localStorage.setItem("OTP", "");
                         alert("Your Registration Code " + data);
                         localStorage.setItem("ClientCode", data);
+                        localStorage.setItem("Previous", data);
                         CheckPartyRegistration("1");
                         clearInterval(showInterval);
                         $(".hide-page-loading-msg").click();
