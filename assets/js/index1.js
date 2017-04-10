@@ -2669,7 +2669,7 @@ function fun_nextItem() {
       //  var itm= document.getElementById("itm-srch").value;
       ////   = $("#itm-srch").val();
       //  $("#lblItmName").text(itm);
-      //  // fun_showCart();
+       fun_showCart();
     }
 }
 
