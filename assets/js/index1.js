@@ -2665,11 +2665,11 @@ function fun_nextItem() {
         window.location.href = "#Item-cart";
     } else {
         window.location.href = "#Item-Info-Search";
-        window.location.href = "#Item-Info-Search-Body";
-        var itm= document.getElementById("itm-srch").value;
-      //   = $("#itm-srch").val();
-        $("#lblItmName").text(itm);
-        // fun_showCart();
+      //  window.location.href = "#Item-Info-Search-Body";
+      //  var itm= document.getElementById("itm-srch").value;
+      ////   = $("#itm-srch").val();
+      //  $("#lblItmName").text(itm);
+      //  // fun_showCart();
     }
 }
 
