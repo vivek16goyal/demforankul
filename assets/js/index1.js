@@ -3013,40 +3013,32 @@ function SaveOrderinGBC(vrno, name, amt) {
 }
 function getUserDataForOrderPlace(val) {
     var pcode;
-    if (val == "0") {
-        pcode = localStorage.getItem("PTCODE");
+    var series;
+    var pname, ptcode, dname, dcode, dadd;
+    var Fdname = "ORDS";
+    if (Fdname == "ORDR") {
+        series = window.localStorage.getItem("sr_Or");
+        pname = $("#ordPatient").val();
+        ptcode = localStorage.getItem("OrdPt");
+        dname = $("#ordDoctor").val();
+        dcode = localStorage.getItem("OrdDrCode");
+        dadd = localStorage.getItem("OrdDrAdd");
+    } else {
+        series = "OS";
     }
-    else {
-        pcode = localStorage.getItem("PCode");
-    }
+    pcode = window.localStorage.getItem("PTCODE");
     var dataArr = getArrayOfOrder();
-    var Disc;
-    var WalAmt;
-    if (pDiscOnOrder == "1") {
-        Disc = $("#DiscAmt").text();
-    } else {
-        Disc = "0";
-    }
-    if (pWallet == "1") {
-        WalAmt = $("#walAmt").text();
-    } else {
-        WalAmt = "0";
-    }
     if (dataArr == "") {
         var data = {
             "pcode": pcode,
-            "PatientID": localStorage.getItem("ClientCode"),
-            "NameP": localStorage.getItem("PTNAME"),
-            "Addr": $("#txtbillingAdd").val(),
-            "DCode": localStorage.getItem("DrCode"),
-            "DrName": $("#dr-name").val(),
-            "DrAddr": $("#dr_infoAdd").text(),
-            "DelCharges": $("#charges").text().toString().replace("Rs.", ""),
-            "AppType": APPType,
-            "Iwqty": localStorage.getItem("pretailordQty"),
-            "EWD": WalAmt,
-            "Disc": Disc,
-            "pWallet": pWallet
+            "PatientID": ptcode,
+            "NameP": pname,
+            "Addr": "",
+            "DCode": dcode,
+            "DrName": dname,
+            "DrAddr": dadd,
+            "FDName": Fdname,
+            "series": series
         };
         return data;
     }
@@ -3054,22 +3046,18 @@ function getUserDataForOrderPlace(val) {
         var data = {
             "items": dataArr,
             "pcode": pcode,
-            "PatientID": localStorage.getItem("ClientCode"),
-            "NameP": localStorage.getItem("PTNAME"),
-            "Addr": $("#txtbillingAdd").val(),
-            "DCode": localStorage.getItem("DrCode"),
-            "DrName": $("#dr-name").val(),
-            "DrAddr": $("#dr_infoAdd").text(),
-            "DelCharges": $("#charges").text().toString().replace("Rs.", ""),
-            "AppType": APPType,
-            "Iwqty": localStorage.getItem("pretailordQty"),
-            "EWD": WalAmt,
-            "Disc": Disc,
-            "pWallet": pWallet
+            "PatientID": ptcode,
+            "NameP": pname,
+            "Addr": "",
+            "DCode": dcode,
+            "DrName": dname,
+            "DrAddr": dadd,
+            "FDName": Fdname,
+            "series": series
         };
         return data;
     }
-   
+
 }
 
 function getArrayOfOrder() {
