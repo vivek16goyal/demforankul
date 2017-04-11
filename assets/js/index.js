@@ -6859,7 +6859,7 @@ function areaall() {
         window.localStorage.setItem("ORDFDNAME", e.value);
     }
     function show_SaveWin() {
-        // var pt = $("#ordPatient").val();
+         var pt = $("#ordPatient").val();
         if (pt == "" && localStorage.getItem("ORDFDNAME")=="ORDR") {
             alert('Patient Name Required!!!');
         }
